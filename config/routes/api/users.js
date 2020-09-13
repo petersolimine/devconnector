@@ -30,11 +30,24 @@ router.post(
     try {
       let user = await User.findOne({ email });
       //see if user exists
-      if (!user) {
+      if (user) {
         return res.status(400).json({
           errors: [{ msg: 'Invalid Credentials' }],
         });
       }
+
+      const avatar = gravatar.url(email, {
+        s: '200',
+        r: 'pg',
+        d: 'mm'
+      });
+
+      user = new User({
+        name,
+        email,
+        avatar,
+        password
+      });
 
       const isMatch = await bcrypt.compare(password, user.password);
 
