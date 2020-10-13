@@ -1,11 +1,11 @@
 const express = require('express');
 const request = require('request');
 const router = express.Router();
-const auth = require('../../../middleware/auth');
+const auth = require('../../middleware/auth');
 const {check, validationResult } = require('express-validator/check');
 
-const Profile = require ('../../../models/Profile');
-const User = require ('../../../models/User');
+const Profile = require ('../../models/Profile');
+const User = require ('../../models/User');
 const { profileEnd } = require('console');
 
 // @route   GET api/profile/me
