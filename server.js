@@ -15,19 +15,19 @@ app.get('/', (req, res) => res.send('API Running'));
 //define routes
 app.use(
   '/api/users',
-  require('..\\devconnector\\config\\routes\\api\\users')
+  require('../devconnector/routes/api/users')
 );
 app.use(
   '/api/auth',
-  require('..\\devconnector\\config\\routes\\api\\auth')
+  require('../devconnector/routes/api/auth')
 );
 app.use(
   '/api/profile',
-  require('..\\devconnector\\config\\routes\\api\\profile')
+  require('../devconnector/routes/api/profile')
 );
 app.use(
   '/api/posts',
-  require('..\\devconnector\\config\\routes\\api\\posts')
+  require('../devconnector/routes/api/posts')
 );
 
 const PORT = process.env.PORT || 5000;

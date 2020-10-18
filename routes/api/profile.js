@@ -274,7 +274,7 @@ router.get('/github/:username',  async (req, res) => {
         const options = {
             uri: `https://api.github.com/users/${req.params.username}/repos?per_page=5&
             sort=created:asc&cient_id=${config.get('githubClientID')}&cient_secret=${config.get('githubSecret')}`,
-            method:GET
+            method:GET,
             headers: {'user-agent': 'node.js'}
         };
 
@@ -289,7 +289,7 @@ router.get('/github/:username',  async (req, res) => {
         })
     } catch (err) {
         consoe.error(err.message);
-        res.status(500.send('Server Error');)
+        res.status(500).send('Server Error');
         
     }
 })

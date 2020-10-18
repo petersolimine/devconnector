@@ -4,14 +4,14 @@ const {check, validationResult } = require('express-validator/check');
 const auth = require('../../middleware/auth');
 const Profile = require ('../../models/Profile');
 const User = require ('../../models/User');
-const Posts = require ('../../models/Posts');
+const Post = require ('../../models/Post');
 
 // @route   POST api/posts
 // @desc    create a post
 // @access  Private
 
 router.post('/', [auth, [
-    check('text', 'Text is required'.not().isEmpty())
+    check('text', 'Text is required').not().isEmpty()
         ]
     ], 
     async (req, res) => {
@@ -162,7 +162,7 @@ router.put('/like/:id', auth, async (req, res) =>{
 // @access  Private
 
 router.post('/comment/:id', [auth, [
-    check('text', 'Text is required'.not().isEmpty())
+    check('text', 'Text is required').not().isEmpty()
         ]
     ], 
     async (req, res) => {
@@ -197,7 +197,7 @@ router.post('/comment/:id', [auth, [
 // @desc    delete a comment from a post
 // @access  Private
 
-router.delete('/comment/:id/:comment_id', auh, async (req, res) => {
+router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
 

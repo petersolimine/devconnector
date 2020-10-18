@@ -23,6 +23,7 @@
     "mongoose": "^5.10.5",
     "node": "^14.10.1",
     "normalize-url": "^5.1.0",
+    "react-moment": "^1.0.0",
     "request": "^2.88.2"
   },
   "devDependencies": {
